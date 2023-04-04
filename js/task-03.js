@@ -12,3 +12,20 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+const galleryEl = document.querySelector('.gallery');
+
+const makeGalleryMarkup = ({ url, alt }) => {
+  return `
+  <li>
+  <img class = "task_03" src='${url}' alt='${alt}' width = "350" height = '200'/>
+  </li>`;
+};
+
+const makeGallary = images.map(makeGalleryMarkup).join('');
+
+galleryEl.insertAdjacentHTML('afterbegin', makeGallary);
+galleryEl.setAttribute(
+  'style',
+  'list-style-type:none; display: flex; gap: 10px;'
+);
